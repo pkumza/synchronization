@@ -45,8 +45,8 @@ func producer() {
 func main() {
 	ctx := context.Background()
 	empty = *sema.NewWeighted(5)
-	full = *sema.NewWeighted(5)
 	empty.Acquire(ctx, 5)
+	full = *sema.NewWeighted(5)
 	wg.Add(2) // wait for producer & consumer
 	go consumer()
 	go producer()
